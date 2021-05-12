@@ -3,4 +3,5 @@ opentracing:
     service-name: OpenTracingAppA
     enabled: TRUE
     udp-sender:
-      host: jaeger-all-in-one-inmemory-agent.gwstracing.svc.cluster.local
+      host: localhost
+      port: 6831
