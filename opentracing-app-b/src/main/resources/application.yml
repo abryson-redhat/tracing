@@ -3,7 +3,8 @@ opentracing:
     service-name: OpenTracingAppB
     enabled: TRUE
     udp-sender:
-      host: jaeger
+      host: localhost
+      port: 6831
 
 server:
   port: 8081
