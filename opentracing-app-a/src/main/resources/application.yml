@@ -5,6 +5,5 @@ opentracing:
     udp-sender:
       host: localhost
       port: 6831
-opentracing:
   b:
     baseurl: "http://opentracing-app-b-gws-tracing.apps.cluster-8329.8329.sandbox1471.opentlc.com"      
