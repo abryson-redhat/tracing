@@ -1,4 +1,5 @@
 FROM openjdk:11-jre
+EXPOSE 8080
 RUN mkdir -p /app/bin
 COPY ./target/opentelemetry-app-b.jar /app/bin
 COPY opentelemetry-javaagent-all.jar /app/bin

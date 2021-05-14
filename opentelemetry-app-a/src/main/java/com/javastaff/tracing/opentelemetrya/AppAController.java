@@ -17,12 +17,15 @@ public class AppAController {
     @Autowired
     private RestTemplate restTemplate;
 
+    @Value("${opentelemetry.b.baseurl}")
+    private String bBaseUrl;
+
     @RequestMapping("/test-tracing")
     public String entryPointController() {
     	HttpHeaders headers = new HttpHeaders();
     	headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
     	HttpEntity<String> entity = new HttpEntity<>(headers);
-    	String response=restTemplate.exchange("http://opentelemetry-app-b:9082/service", HttpMethod.GET, entity, String.class).getBody();	
+    	String response=restTemplate.exchange(bBaseUrl + "/service", HttpMethod.GET, entity, String.class).getBody();	
     	
         return "Remote server said: "+response;
     }

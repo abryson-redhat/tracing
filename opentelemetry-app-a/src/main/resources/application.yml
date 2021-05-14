@@ -1,2 +1,6 @@
 server:
-  port: 9081
+  port: 8080
+
+opentelemetry:
+  b:
+    baseurl: "http://opentelemetry-app-b-gws-tracing.apps.cluster-8329.8329.sandbox1471.opentlc.com"

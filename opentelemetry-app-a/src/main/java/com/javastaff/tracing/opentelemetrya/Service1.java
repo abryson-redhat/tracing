@@ -15,10 +15,13 @@ public class Service1 {
 	@Autowired
     private RestTemplate restTemplate;
 	
+    @Value("${opentelemetry.b.baseurl}")
+    private String bBaseUrl;
+
 	public void hello() {
 		HttpHeaders headers = new HttpHeaders();
     	headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
     	HttpEntity<String> entity = new HttpEntity<>(headers);
-    	restTemplate.exchange("http://opentelemetry-app-b:9082/service", HttpMethod.GET, entity, String.class).getBody();	
+    	restTemplate.exchange(bBaseUrl + "/service", HttpMethod.GET, entity, String.class).getBody();	
 	}
 }

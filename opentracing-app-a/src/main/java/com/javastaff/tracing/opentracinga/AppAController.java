@@ -22,12 +22,16 @@ public class AppAController {
     @Autowired
     private RestTemplate restTemplate;
 
+    @Value("${opentracing.b.baseurl}")
+    private String bBaseUrl;
+
+
     @RequestMapping("/test-tracing")
     public String entryPointController() {
     	HttpHeaders headers = new HttpHeaders();
     	headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
     	HttpEntity<String> entity = new HttpEntity<>(headers);
-    	String response=restTemplate.exchange("http://opentracing-app-b:8081/service", HttpMethod.GET, entity, String.class).getBody();	
+    	String response=restTemplate.exchange(bBaseUrl + "/service", HttpMethod.GET, entity, String.class).getBody();	
     	
     	
         Tracer tracer = GlobalTracer.get();
